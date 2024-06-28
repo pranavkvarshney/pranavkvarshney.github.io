@@ -2,6 +2,7 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
+import Header from "@/app/components/Header";
 export default function edit({ params }) {
     const router = useRouter()
     const [newName, setNewName] = useState("");
@@ -92,208 +93,210 @@ export default function edit({ params }) {
 
     return (
         <>
+            <Header />
+            <div className="mt-2">
+                <form onSubmit={handlesubmit} onReset={handledelete}
+                    className="relative border w-[70%] pt-16 md:w-[55%] py-2 mx-auto gap-5 flex flex-col " >
+                    <div className="mx-auto py-2">
+                        <h1 className="text-2xl font-bold text-center">Edit Details</h1>
+                    </div>
+                    <div className='mx-auto md:grid md:grid-cols-2 md:gap-6'>
+                        <div className=''>
+                            <label htmlFor="name" className="mb-2 text-black">Username</label>
+                            <div className="flex w-full mb-2">
+                                <span className="inline-flex items-center px-4 bg-gray-100 border border-e-0 border-gray-300 rounded-s-md ">
+                                    <Image
+                                        src="/person1.svg"
+                                        alt='img'
+                                        width={30}
+                                        height={30}
+                                        priority
+                                    />
+                                </span>
+                                <input
+                                    onChange={(e) => setNewName(e.target.value)}
+                                    value={newName}
+                                    type="text"
+                                    id="name"
+                                    placeholder="Your Name"
+                                    className="rounded-e-lg text-black w-[100%]  p-2.5 " />
+                            </div>
+                        </div>
+                        <div>
+                            <label htmlFor="name" className="mb-2 text-black">Phone</label>
+                            <div className="flex w-full mb-2">
+                                <span className="inline-flex items-center px-4 bg-gray-100 border border-e-0 border-gray-300 rounded-s-md ">
+                                    <Image
+                                        src="/phone.svg"
+                                        alt='img'
+                                        width={30}
+                                        height={30}
+                                        priority
+                                    />
+                                </span>
+                                <input
+                                    onChange={(e) => setNewPhone(e.target.value)}
+                                    value={newPhone}
+                                    type="tel"
+                                    id="phone"
+                                    placeholder="+91-0000000000"
+                                    className="rounded-e-lg text-black w-[100%] p-2.5"
+                                />
+                            </div>
+                        </div>
+                        <div>
+                            <label htmlFor="name" className="mb-2 text-black">Company</label>
+                            <div className="flex w-full mb-2">
+                                <span className="inline-flex items-center px-4 bg-gray-100 border border-e-0 border-gray-300 rounded-s-md ">
+                                    <Image
+                                        src="/company.svg"
+                                        alt='img'
+                                        width={30}
+                                        height={30}
+                                        priority
+                                    />
+                                </span>
+                                <input
+                                    onChange={(e) => setNewCompany(e.target.value)}
+                                    value={newCompany}
+                                    type="text"
+                                    id="company"
+                                    placeholder="Company Name"
+                                    className="rounded-e-lg text-black w-[100%] p-2.5"
+                                />
+                            </div>
+                        </div>
+                        <div>
+                            <label htmlFor="name" className="mb-2 text-black">Company Address</label>
+                            <div className="flex w-full mb-2">
+                                <span className="inline-flex items-center px-4 bg-gray-100 border border-e-0 border-gray-300 rounded-s-md ">
+                                    <Image
+                                        src="/address.svg"
+                                        alt='img'
+                                        width={30}
+                                        height={30}
+                                        priority
+                                    />
+                                </span>
+                                <input
+                                    onChange={(e) => setNewAddress(e.target.value)}
+                                    value={newAddress}
+                                    type="text"
+                                    id="address"
+                                    placeholder="Company Address"
+                                    className="rounded-e-lg text-black w-[100%] p-2.5"
+                                />
+                            </div>
+                        </div>
+                        <div>
+                            <label htmlFor="name" className="mb-2 text-black">Type</label>
+                            <div className="flex w-full mb-2">
+                                <span className="inline-flex items-center px-4 bg-gray-100 border border-e-0 border-gray-300 rounded-s-md ">
+                                    <Image
+                                        src="/person.svg"
+                                        alt='img'
+                                        width={30}
+                                        height={30}
+                                        priority
+                                    />
+                                </span>
+                                <select
+                                    onChange={(e) => setNewType(e.target.value)}
+                                    value={newType}
+                                    className="border rounded-e-lg  block w-full p-2.5 " name="cars" id="cars" form="carform">
+                                    <option className='text-black' value="volvo">Guests</option>
+                                    <option value="Interviewer">Interviewer</option>
+                                    <option value="Courier">Courier</option>
+                                    <option value="Client">Client</option>
+                                    <option value="Vendor">Vendor</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div>
+                            <label htmlFor="name" className="mb-2 text-black">Purpose</label>
+                            <div className="flex w-full mb-2">
+                                <span className="inline-flex items-center px-4 bg-gray-100 border border-e-0 border-gray-300 rounded-s-md ">
+                                    <Image
+                                        src="/purpose.svg"
+                                        alt='img'
+                                        width={30}
+                                        height={30}
+                                        priority
+                                    />
+                                </span>
+                                <select
+                                    onChange={(e) => setNewPurpose(e.target.value)}
+                                    value={newPurpose}
+                                    className="border rounded-e-lg  block w-full p-2.5 " name="cars" id="cars" form="carform">
+                                    <option value="Meeting">Meeting</option>
+                                    <option value="Parcel Delivery">Parcel Delivery</option>
+                                    <option value="Parcel Pickup">Parcel Pickup</option>
+                                    <option value="Job Interview">Job Interview</option>
+                                    <option value="Sales Inquiry">Sales Inquiry</option>
+                                    <option value="Others">Others</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <h1 className="text-base pt-3 font-bold text-left">Meeting With...</h1>
+                    <div className="mx-auto md:grid  md:grid-cols-2 md:gap-6">
 
-            <form onSubmit={handlesubmit} onReset={handledelete}
-                className="relative border w-[70%] pt-16 md:w-[55%] py-2 mx-auto gap-5 flex flex-col " >
-                <div className="mx-auto py-2">
-                    <h1 className="text-2xl font-bold text-center">Edit Details</h1>
-                </div>
-                <div className='mx-auto md:grid md:grid-cols-2 md:gap-6'>
-                    <div className=''>
-                        <label htmlFor="name" className="mb-2 text-black">Username</label>
-                        <div className="flex w-full mb-2">
-                            <span className="inline-flex items-center px-4 bg-gray-100 border border-e-0 border-gray-300 rounded-s-md ">
-                                <Image
-                                    src="/person1.svg"
-                                    alt='img'
-                                    width={30}
-                                    height={30}
-                                    priority
+                        <div >
+                            <label htmlFor="name" className="mb-2 text-black">Name</label>
+                            <div className="flex w-full mb-2">
+                                <span className="inline-flex items-center px-4 bg-gray-100 border border-e-0 border-gray-300 rounded-s-md ">
+                                    <Image
+                                        src="/username.svg"
+                                        alt='img'
+                                        width={30}
+                                        height={30}
+                                        priority
+                                    />
+                                </span>
+                                <input
+                                    onChange={(e) => setNewCompname(e.target.value)}
+                                    value={newCompname}
+                                    type="text"
+                                    id="empname"
+                                    placeholder="Employee Name"
+                                    className="rounded-e-lg text-black w-[100%] p-2.5"
                                 />
-                            </span>
-                            <input
-                                onChange={(e) => setNewName(e.target.value)}
-                                value={newName}
-                                type="text"
-                                id="name"
-                                placeholder="Your Name"
-                                className="rounded-e-lg text-black w-[100%]  p-2.5 " />
+                            </div>
+                        </div>
+                        <div>
+                            <label htmlFor="name" className="mb-2 text-black">Department</label>
+                            <div className="flex w-full mb-2">
+                                <span className="inline-flex items-center px-4 bg-gray-100 border border-e-0 border-gray-300 rounded-s-md ">
+                                    <Image
+                                        src="/department.svg"
+                                        alt='img'
+                                        width={30}
+                                        height={30}
+                                        priority
+                                    />
+                                </span>
+                                <input
+                                    onChange={(e) => setNewCompadd(e.target.value)}
+                                    value={newCompadd}
+                                    type="text"
+                                    id="department"
+                                    placeholder="Employee Department"
+                                    className="rounded-e-lg text-black w-[100%] p-2.5"
+                                />
+                            </div>
                         </div>
                     </div>
-                    <div>
-                        <label htmlFor="name" className="mb-2 text-black">Phone</label>
-                        <div className="flex w-full mb-2">
-                            <span className="inline-flex items-center px-4 bg-gray-100 border border-e-0 border-gray-300 rounded-s-md ">
-                                <Image
-                                    src="/phone.svg"
-                                    alt='img'
-                                    width={30}
-                                    height={30}
-                                    priority
-                                />
-                            </span>
-                            <input
-                                onChange={(e) => setNewPhone(e.target.value)}
-                                value={newPhone}
-                                type="tel"
-                                id="phone"
-                                placeholder="+91-0000000000"
-                                className="rounded-e-lg text-black w-[100%] p-2.5"
-                            />
-                        </div>
-                    </div>
-                    <div>
-                        <label htmlFor="name" className="mb-2 text-black">Company</label>
-                        <div className="flex w-full mb-2">
-                            <span className="inline-flex items-center px-4 bg-gray-100 border border-e-0 border-gray-300 rounded-s-md ">
-                                <Image
-                                    src="/company.svg"
-                                    alt='img'
-                                    width={30}
-                                    height={30}
-                                    priority
-                                />
-                            </span>
-                            <input
-                                onChange={(e) => setNewCompany(e.target.value)}
-                                value={newCompany}
-                                type="text"
-                                id="company"
-                                placeholder="Company Name"
-                                className="rounded-e-lg text-black w-[100%] p-2.5"
-                            />
-                        </div>
-                    </div>
-                    <div>
-                        <label htmlFor="name" className="mb-2 text-black">Company Address</label>
-                        <div className="flex w-full mb-2">
-                            <span className="inline-flex items-center px-4 bg-gray-100 border border-e-0 border-gray-300 rounded-s-md ">
-                                <Image
-                                    src="/address.svg"
-                                    alt='img'
-                                    width={30}
-                                    height={30}
-                                    priority
-                                />
-                            </span>
-                            <input
-                                onChange={(e) => setNewAddress(e.target.value)}
-                                value={newAddress}
-                                type="text"
-                                id="address"
-                                placeholder="Company Address"
-                                className="rounded-e-lg text-black w-[100%] p-2.5"
-                            />
-                        </div>
-                    </div>
-                    <div>
-                        <label htmlFor="name" className="mb-2 text-black">Type</label>
-                        <div className="flex w-full mb-2">
-                            <span className="inline-flex items-center px-4 bg-gray-100 border border-e-0 border-gray-300 rounded-s-md ">
-                                <Image
-                                    src="/person.svg"
-                                    alt='img'
-                                    width={30}
-                                    height={30}
-                                    priority
-                                />
-                            </span>
-                            <select
-                                onChange={(e) => setNewType(e.target.value)}
-                                value={newType}
-                                className="border rounded-e-lg  block w-full p-2.5 " name="cars" id="cars" form="carform">
-                                <option className='text-black' value="volvo">Guests</option>
-                                <option value="Interviewer">Interviewer</option>
-                                <option value="Courier">Courier</option>
-                                <option value="Client">Client</option>
-                                <option value="Vendor">Vendor</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div>
-                        <label htmlFor="name" className="mb-2 text-black">Purpose</label>
-                        <div className="flex w-full mb-2">
-                            <span className="inline-flex items-center px-4 bg-gray-100 border border-e-0 border-gray-300 rounded-s-md ">
-                                <Image
-                                    src="/purpose.svg"
-                                    alt='img'
-                                    width={30}
-                                    height={30}
-                                    priority
-                                />
-                            </span>
-                            <select
-                                onChange={(e) => setNewPurpose(e.target.value)}
-                                value={newPurpose}
-                                className="border rounded-e-lg  block w-full p-2.5 " name="cars" id="cars" form="carform">
-                                <option value="Meeting">Meeting</option>
-                                <option value="Parcel Delivery">Parcel Delivery</option>
-                                <option value="Parcel Pickup">Parcel Pickup</option>
-                                <option value="Job Interview">Job Interview</option>
-                                <option value="Sales Inquiry">Sales Inquiry</option>
-                                <option value="Others">Others</option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
-                <h1 className="text-base pt-3 font-bold text-left">Meeting With...</h1>
-                <div className="mx-auto md:grid  md:grid-cols-2 md:gap-6">
+                    <div className="flex justify-center gap-16">
+                        <button className="bg-gradient-to-r  from-[#832121] via-[#a55151] to-[#d77878] rounded-lg px-9 py-3 text-white font-bold" type="reset">
+                            Delete
+                        </button>
+                        <button className="bg-gradient-to-r from-[#216583] via-[#518ca5] to-[#78bad7]   rounded-lg px-6 py-3 text-white font-bold" type="submit">
+                            Update
+                        </button>
 
-                    <div >
-                        <label htmlFor="name" className="mb-2 text-black">Name</label>
-                        <div className="flex w-full mb-2">
-                            <span className="inline-flex items-center px-4 bg-gray-100 border border-e-0 border-gray-300 rounded-s-md ">
-                                <Image
-                                    src="/username.svg"
-                                    alt='img'
-                                    width={30}
-                                    height={30}
-                                    priority
-                                />
-                            </span>
-                            <input
-                                onChange={(e) => setNewCompname(e.target.value)}
-                                value={newCompname}
-                                type="text"
-                                id="empname"
-                                placeholder="Employee Name"
-                                className="rounded-e-lg text-black w-[100%] p-2.5"
-                            />
-                        </div>
                     </div>
-                    <div>
-                        <label htmlFor="name" className="mb-2 text-black">Department</label>
-                        <div className="flex w-full mb-2">
-                            <span className="inline-flex items-center px-4 bg-gray-100 border border-e-0 border-gray-300 rounded-s-md ">
-                                <Image
-                                    src="/department.svg"
-                                    alt='img'
-                                    width={30}
-                                    height={30}
-                                    priority
-                                />
-                            </span>
-                            <input
-                                onChange={(e) => setNewCompadd(e.target.value)}
-                                value={newCompadd}
-                                type="text"
-                                id="department"
-                                placeholder="Employee Department"
-                                className="rounded-e-lg text-black w-[100%] p-2.5"
-                            />
-                        </div>
-                    </div>
-                </div>
-                <div className="flex justify-center gap-16">
-                    <button className="bg-gradient-to-r  from-[#832121] via-[#a55151] to-[#d77878] rounded-lg px-9 py-3 text-white font-bold" type="reset">
-                        Delete
-                    </button>
-                    <button className="bg-gradient-to-r from-[#216583] via-[#518ca5] to-[#78bad7]   rounded-lg px-6 py-3 text-white font-bold" type="submit">
-                        Update
-                    </button>
-
-                </div>
-            </form>
+                </form>
+            </div>
         </>
     )
 }

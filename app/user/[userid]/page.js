@@ -1,4 +1,5 @@
 import Image from "next/image"
+import Header from "@/app/components/Header"
 async function getuser(userIdParam) {
 
     let response = await fetch(`http://localhost:3000/api/users/${userIdParam}`,
@@ -22,6 +23,7 @@ export default async function viewuser({ params }) {
 
     return (
         <>
+            <Header />
             <div className="py-24">
                 <div className="container border-2 bg-[#eaeaec] border-slate-600 rounded-lg flex w-[40%] max-xl:w-[60%] max-md:w-[70%] max-sm:w-[98%]  mx-auto">
 

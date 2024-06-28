@@ -1,11 +1,29 @@
 "use client"
 import React, { useEffect } from 'react'
+import Decide from './Decide';
 import Image from 'next/image';
 import ThemeToggle from './ThemeToggle';
+import { useRouter } from 'next/navigation';
+import SigOut from './SigOut';
+import LoSig from './LoSig';
 
 
-const Header = () => {
+const Header = ({ email, setEmail }) => {
+    // useEffect(() => {
+    //     // Your function here
+    //     console.log(email)
+    //     const myFunction = async () => {
+    //         let result = await fetch(`http://localhost:3000/api/appuser/login/${email}`, {
+    //             cache: 'no-store',
+    //         })
+    //         result = await result.json()
+    //         // console.log(result)
+    //     };
+
+    //     myFunction();
+    // }, [email]);
     useEffect(() => {
+
         const button = document.querySelector('#menu-button');
         const menu = document.querySelector('#menu');
 
@@ -53,15 +71,10 @@ bg-[#d3cdcd]
               md:justify-between 
               md:pt-0">
                         <li>
-                            <a className=" md:p-4 py-2 text-2xl block bg-gradient-to-r from-purple-500 to-pink-500  text-transparent bg-clip-text hover:text-blue-700" href="/components/">Add New Visitor</a>
+                            <a className="text-blue-700 md:p-4 mx-3 py-2 text-2xl block hover:bg-gradient-to-r hover:from-green-600 hover:to-blue-500  hover:text-transparent hover:bg-clip-text " href="/components/">Add New Visitor</a>
                         </li>
+                        <LoSig />
 
-                        <li>
-                            <button type="button" class="btn m-2 text-white bg-gradient-to-r from-purple-500 to-pink-500  focus:ring-2 focus:outline-none  focus:ring-purple-500  rounded-lg  px-5 py-2.5 text-center ">Login</button>
-                        </li>
-                        <li>
-                            <button type="button" class="btn m-2 text-white bg-gradient-to-r from-purple-500 to-pink-500  focus:ring-2 focus:outline-none   focus:ring-purple-500 rounded-lg  px-5 py-2.5 text-center me-2 mb-2">SignUp</button>
-                        </li>
                         <li>
                             <span className=" "><ThemeToggle /></span>
 

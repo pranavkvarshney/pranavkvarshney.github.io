@@ -57,11 +57,11 @@ body {
     padding: 0;
 }
 
-.container {
+/* .container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
-}
+} */
 
 h1 {
     color: var(--primary-color);
@@ -224,7 +224,7 @@ input:checked+.slider:before {
 
 /* .btn:hover+.btn, */
 .btn:not(:hover) {
-    background-image: linear-gradient(to right, #a46ede, #E91E63);
+    background-image: linear-gradient(to right, #4ADE80, #2563EB);
 }
 
 .display-bar {

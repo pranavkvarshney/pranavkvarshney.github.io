@@ -1,10 +1,10 @@
 // pages/index.js
 "use client"
 import Head from 'next/head';
-import Form from '@/app/components/Form'
 import ThemeToggle from '@/app/components/ThemeToggle';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
+import Header from '@/app/components/Header';
 
 
 const Home = () => {
@@ -14,6 +14,7 @@ const Home = () => {
   }
   return (
     <>
+      <Header />
       <div className="light-mode pt-20">
         <section style={{ textAlign: 'center', padding: '50px 0' }}>
           <h2 style={{ fontSize: '2.5em', marginBottom: '20px' }}>Welcome to VisitorPro</h2>
