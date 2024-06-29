@@ -62,6 +62,7 @@ const Form = () => {
     };
     return (
         <>
+
             <Header />
             <div className="mt-3">
                 <form
@@ -265,6 +266,7 @@ const Form = () => {
                     </div>
                 </form>
             </div>
+
         </>
     )
 }

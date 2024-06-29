@@ -1,3 +1,5 @@
+
+import { LoginProvider } from '@/app/components/contexts/LoginContext'
 import { Inter } from "next/font/google";
 import Footer from "./components/Footer";
 import "./globals.css";
@@ -14,8 +16,9 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={inter.className}>
-
-        {children}
+        <LoginProvider>
+          {children}
+        </LoginProvider>
         <Footer />
       </body>
     </html>
